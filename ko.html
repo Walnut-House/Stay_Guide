@@ -133,6 +133,66 @@
   .photo b{display:block;color:var(--walnut-deep);font-family:"Gowun Batang",serif;font-size:14px}
   .photo span{font-size:12.5px}
 
+  /* uploaded photo */
+  .guide-img{
+    width:100%;display:block;border-radius:11px;
+    background:#FAF5E8;
+  }
+
+  /* photo slot — 빈 상태일 땐 점선 박스, src에 파일명이 들어가면 자동으로 사진 표시 */
+  .photo-slot{
+    position:relative;
+    border:2px dashed #CDBF9E;
+    border-radius:12px;
+    background:#FAF5E8;
+    min-height:78px;
+    margin-top:10px;
+  }
+  .photo-slot::after{
+    content:"📷 사진 자리 — src=\"\"에 파일명을 넣으세요";
+    position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--muted);font-size:11.5px;
+    font-family:"Gowun Dodum",sans-serif;letter-spacing:.02em;
+    pointer-events:none;
+  }
+  .photo-slot:has(img:not([src=""])){
+    border:1px solid var(--line);background:transparent;min-height:0;
+  }
+  .photo-slot:has(img:not([src=""]))::after{display:none}
+  .photo-slot .guide-img[src=""]{display:none}
+  .photo-cap{font-size:12px;color:var(--muted);text-align:center;margin-top:6px;font-family:"Gowun Dodum",sans-serif}
+
+  /* appliance items */
+  .appliance{padding:14px 0;border-bottom:1px dashed var(--line)}
+  .appliance:last-of-type{border-bottom:0}
+  .appliance:first-of-type{padding-top:4px}
+  .ap-title{
+    font-family:"Gowun Batang",serif;font-weight:700;color:var(--walnut-deep);
+    font-size:15px;letter-spacing:.04em;margin-bottom:4px;
+    position:relative;padding-left:16px;
+  }
+  .ap-title::before{
+    content:"";position:absolute;left:0;top:11px;
+    width:7px;height:7px;border-radius:50%;background:var(--walnut);
+  }
+  .ap-desc{color:var(--ink);font-size:14.5px;margin-bottom:4px}
+
+  /* google my map embed */
+  .map-embed{
+    margin:14px 0 22px;border-radius:14px;overflow:hidden;
+    border:1px solid var(--line);background:#FAF5E8;
+  }
+  .map-embed iframe{display:block;width:100%;height:340px;border:0}
+  .map-placeholder{
+    padding:34px 22px;text-align:center;color:var(--muted);
+    border:2px dashed #CDBF9E;border-radius:14px;background:#FAF5E8;
+  }
+  .map-placeholder svg{width:32px;height:32px;stroke:var(--walnut);stroke-width:1.6;fill:none;margin-bottom:10px}
+  .map-placeholder b{display:block;color:var(--walnut-deep);font-family:"Gowun Batang",serif;font-size:14px;margin-bottom:4px}
+  .map-placeholder span{font-size:12.5px;line-height:1.6}
+  .map-placeholder code{background:#fff;border:1px solid var(--line);padding:1px 6px;border-radius:5px;font-size:11.5px;color:var(--walnut-deep)}
+
   /* trash grid */
   .trash{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
   .bin{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#fff}
@@ -142,11 +202,22 @@
   .b1 .top{background:#C2603E}.b2 .top{background:#C79A3A}.b3 .top{background:#39786A}.b4 .top{background:#8A8478}
 
   /* nearby */
-  .place{padding:9px 0;border-bottom:1px dashed var(--line);display:flex;gap:12px;align-items:baseline}
+  .place{padding:9px 0;border-bottom:1px dashed var(--line);display:flex;gap:12px;align-items:center}
   .place:last-child{border-bottom:0}
+  .place .body{flex:1;min-width:0}
   .place .nm{font-family:"Gowun Batang",serif;font-weight:700;color:var(--ink);font-size:15px}
   .place .ds{color:var(--soft-ink);font-size:13.5px}
   .walk{flex:0 0 auto;font-family:"Fraunces",serif;font-size:12px;color:#fff;background:var(--walnut);border-radius:20px;padding:2px 10px;white-space:nowrap}
+  .dir{
+    flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;
+    text-decoration:none;font-family:"Gowun Dodum",sans-serif;font-size:13px;
+    color:var(--forest);background:#EAF0EC;border:1px solid #CFE0D6;
+    border-radius:22px;padding:7px 13px;white-space:nowrap;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .dir svg{width:15px;height:15px;stroke:var(--forest);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .dir:hover{background:#DCE8E0;transform:translateY(-1px)}
+  .dir:active{transform:translateY(0)}
   .subhead{font-family:"Gowun Batang",serif;font-weight:700;color:var(--forest);font-size:15px;margin:18px 0 4px;letter-spacing:.04em}
   .subhead:first-of-type{margin-top:4px}
 
@@ -159,6 +230,10 @@
     .trash{grid-template-columns:1fr}
     .row .k{flex-basis:96px;font-size:13px}
     .card{padding:24px 20px}
+    .place{flex-wrap:wrap}
+    .walk{order:1}
+    .place .body{order:3;flex-basis:100%}
+    .dir{order:2;margin-left:auto}
   }
   @media print{
     body{background:#fff;padding:0}
@@ -207,11 +282,9 @@
     <div class="row"><div class="k">체크아웃</div><div class="v">11:00 이전</div></div>
     <div class="row"><div class="k">주소</div><div class="v">서울특별시 종로구 율곡로 22가길 7, 401호</div></div>
     <div class="row"><div class="k">출입 방법</div><div class="v">공동현관 <span class="chip">2345&ast;</span> → 401호<br><small>도어락 비밀번호는 체크인 당일 별도 메시지로 안내드립니다</small></div></div>
-    <div class="photo">
-      <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>
-      <b>📷 사진 넣을 자리 — 공동현관 / 도어락</b>
-      <span>현관 키패드와 401호 도어락 실물 사진을 넣으면 손님이 훨씬 쉽게 찾아요</span>
-    </div>
+    <!-- 📷 사진을 넣으려면 아래 src=""의 따옴표 사이에 파일명을 넣으세요. 예: src="doorlock.jpg" -->
+    <div class="photo-slot"><img class="guide-img" src="" alt="공동현관 키패드와 401호 도어락"></div>
+    <div class="photo-cap">공동현관 / 도어락</div>
   </section>
 
   <!-- WiFi -->
@@ -230,17 +303,39 @@
       <div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M14 8h3M14 11h3M7 15h10"/></svg></div>
       <div class="t"><span class="num">In the Home · 04</span><h2>집 사용 안내</h2></div>
     </div>
-    <ul class="clean">
-      <li><b>에어컨 / 난방</b> — 리모컨으로 조절해 주세요. 외출 시에는 꺼주시면 감사하겠습니다.</li>
-      <li><b>세탁기</b> — 주방 안쪽 베란다에 있습니다. 세제는 세탁기 옆에 비치되어 있어요.</li>
-      <li><b>주방</b> — 기본 조리도구와 전자레인지, 가스레인지를 자유롭게 사용하실 수 있습니다.</li>
-      <li><b>TV</b> — 리모컨 전원 버튼을 누르신 후 원하시는 OTT 서비스를 선택해 주세요. (계정 로그인 별도)</li>
-      <li><b>온수</b> — Room3(큰방) 보일러는 따로 조작하지 않으셔도 됩니다.</li>
-    </ul>
-    <div class="photo">
-      <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>
-      <b>📷 사진 넣을 자리 — 가전 조작법</b>
-      <span>가스레인지 · 세탁기 · 보일러 패널 · TV 리모컨 사진에 버튼 표시를 더하면 좋아요</span>
+    <div class="appliance">
+      <div class="ap-title">에어컨 / 난방</div>
+      <p class="ap-desc">리모컨으로 조절해 주세요. 외출 시에는 꺼주시면 감사하겠습니다.</p>
+      <!-- 📷 사진을 넣으려면 아래 src=""의 따옴표 사이에 파일명을 넣으세요. 예: src="aircon.jpg" -->
+      <div class="photo-slot"><img class="guide-img" src="" alt="에어컨 / 난방 리모컨"></div>
+    </div>
+
+    <div class="appliance">
+      <div class="ap-title">세탁기</div>
+      <p class="ap-desc">주방 안쪽 베란다에 있습니다. 세제는 세탁기 옆에 비치되어 있어요.</p>
+      <!-- 📷 src="washer.jpg" 처럼 파일명을 넣으세요 -->
+      <div class="photo-slot"><img class="guide-img" src="" alt="세탁기와 세제 위치"></div>
+    </div>
+
+    <div class="appliance">
+      <div class="ap-title">주방</div>
+      <p class="ap-desc">기본 조리도구와 전자레인지, 가스레인지를 자유롭게 사용하실 수 있습니다.</p>
+      <!-- 📷 src="kitchen.jpg" 처럼 파일명을 넣으세요 -->
+      <div class="photo-slot"><img class="guide-img" src="" alt="주방 · 가스레인지 사용법"></div>
+    </div>
+
+    <div class="appliance">
+      <div class="ap-title">TV</div>
+      <p class="ap-desc">리모컨 전원 버튼을 누르신 후 원하시는 OTT 서비스를 선택해 주세요. (계정 로그인 별도)</p>
+      <!-- 📷 src="tv.jpg" 처럼 파일명을 넣으세요 -->
+      <div class="photo-slot"><img class="guide-img" src="" alt="TV 리모컨"></div>
+    </div>
+
+    <div class="appliance">
+      <div class="ap-title">온수</div>
+      <p class="ap-desc">Room3(큰방) 보일러는 따로 조작하지 않으셔도 됩니다.</p>
+      <!-- 📷 src="boiler.jpg" 처럼 파일명을 넣으세요 -->
+      <div class="photo-slot"><img class="guide-img" src="" alt="Room3 보일러 패널"></div>
     </div>
   </section>
 
@@ -286,9 +381,7 @@
     <div class="row"><div class="k">구급차·소방</div><div class="v"><span class="chip">119</span></div></div>
     <div class="row"><div class="k">경찰</div><div class="v"><span class="chip">112</span></div></div>
     <div class="note">통화 연결 후 <b>"Hello, English please"</b> 라고 말하면 통역사가 연결됩니다.</div>
-    <p class="subhead">근처 의료시설</p>
-    <div class="row"><div class="k">병원</div><div class="v">서울대학교병원 <small>· 도보 10분 · 24시간 응급실</small></div></div>
-    <div class="row"><div class="k">약국</div><div class="v">종로5가 백화점약국 <small>· 도보 6분</small></div></div>
+    <div class="note" style="border-left-color:var(--forest)">근처 병원·약국은 <b>"주변 추천 → 의료시설"</b> 항목을 참고해 주세요.</div>
   </section>
 
   <!-- 주변 추천 -->
@@ -298,38 +391,125 @@
       <div class="t"><span class="num">Around the House · 08</span><h2>주변 추천</h2></div>
     </div>
 
+    <!--
+      📍 구글 마이맵 임베드 자리
+      Google My Maps에서 만든 지도의 임베드 코드(<iframe ...>)를
+      아래 <div class="map-embed"> 안의 placeholder 부분에 붙여넣으세요.
+      코드 받는 법: My Maps 우측 상단 ⋮ → "내 사이트에 삽입" → iframe 코드 복사
+    -->
+    <div class="map-embed">
+      <!-- 여기에 구글 마이맵 <iframe> 코드를 붙여넣고 아래 placeholder div는 지우세요 -->
+      <div class="map-placeholder">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></svg>
+        <b>구글 지도 임베드 자리</b>
+        <span>Google My Maps의 <code>&lt;iframe&gt;</code> 코드를 여기에 붙여넣으세요</span>
+      </div>
+    </div>
+
     <p class="subhead">편의점 · 마트</p>
-    <div class="place"><span class="walk">2분</span><div><div class="nm">GS25 종로효제점</div><div class="ds">24시간 운영</div></div></div>
-    <div class="place"><span class="walk">9분</span><div><div class="nm">광장시장</div><div class="ds">전통 재래시장 · 장보기 + 길거리 음식</div></div></div>
+    <div class="place">
+      <span class="walk">2분</span>
+      <div class="body"><div class="nm">GS25 종로효제점</div><div class="ds">24시간 운영</div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=GS25+%EC%A2%85%EB%A1%9C%ED%9A%A8%EC%A0%9C%EC%A0%90+%EC%84%9C%EC%9A%B8"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>길찾기</a>
+    </div>
+    <div class="place">
+      <span class="walk">9분</span>
+      <div class="body"><div class="nm">광장시장</div><div class="ds">전통 재래시장 · 장보기 + 길거리 음식</div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=%EA%B4%91%EC%9E%A5%EC%8B%9C%EC%9E%A5+%EC%84%9C%EC%9A%B8"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>길찾기</a>
+    </div>
 
     <p class="subhead">광장시장 (꼭 가보세요)</p>
     <div class="note" style="border-left-color:var(--forest)">한국에서 가장 유명한 전통 시장. 추천: <b>빈대떡 · 마약김밥 · 칼국수 · 육회 · 떡볶이</b><br>영업시간 매일 09:00–22:30</div>
 
     <p class="subhead">식당</p>
-    <div class="place"><span class="walk">7분</span><div><div class="nm">봉할매김치찌개불백</div><div class="ds">김치찌개·불고기 도시락 · 영어 가능</div></div></div>
-    <div class="place"><span class="walk">8분</span><div><div class="nm">봉평칼국수</div><div class="ds">손칼국수·빈대떡 · 종로5가역 인근</div></div></div>
+    <div class="place">
+      <span class="walk">7분</span>
+      <div class="body"><div class="nm">봉할매김치찌개불백</div><div class="ds">김치찌개·불고기 도시락 · 영어 가능</div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=%EB%B4%89%ED%95%A0%EB%A7%A4%EA%B9%80%EC%B9%98%EC%B0%8C%EA%B0%9C%EB%B6%88%EB%B0%B1+%EC%A2%85%EB%A1%9C"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>길찾기</a>
+    </div>
+    <div class="place">
+      <span class="walk">8분</span>
+      <div class="body"><div class="nm">봉평칼국수</div><div class="ds">손칼국수·빈대떡 · 종로5가역 인근</div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=%EB%B4%89%ED%8F%89%EC%B9%BC%EA%B5%AD%EC%88%98+%EC%A2%85%EB%A1%9C5%EA%B0%80"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>길찾기</a>
+    </div>
 
     <p class="subhead">카페</p>
-    <div class="place"><span class="walk">4분</span><div><div class="nm">4ozday Coffee Roasters</div><div class="ds">호주식 스페셜티 · 매장 로스팅</div></div></div>
-    <div class="place"><span class="walk">15분</span><div><div class="nm">익선동 한옥카페 거리</div><div class="ds">Hanok Langsom · Soha Salt Pond · Nagwonjang X Hanamato</div></div></div>
+    <div class="place">
+      <span class="walk">4분</span>
+      <div class="body"><div class="nm">4ozday Coffee Roasters</div><div class="ds">호주식 스페셜티 · 매장 로스팅</div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=4ozday+Coffee+Roasters+Seoul"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>길찾기</a>
+    </div>
+    <div class="place">
+      <span class="walk">15분</span>
+      <div class="body"><div class="nm">익선동 한옥카페 거리</div><div class="ds">Hanok Langsom · Soha Salt Pond · Nagwonjang X Hanamato</div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=%EC%9D%B5%EC%84%A0%EB%8F%99+%ED%95%9C%EC%98%A5%EB%A7%88%EC%9D%84+%EC%84%9C%EC%9A%B8"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>길찾기</a>
+    </div>
 
     <p class="subhead">관광지 (도보권)</p>
-    <div class="place"><span class="walk">10분</span><div><div class="nm">동대문 DDP</div><div class="ds">야경 추천</div></div></div>
-    <div class="place"><span class="walk">12분</span><div><div class="nm">종묘 (UNESCO)</div><div class="ds">화요일 휴무</div></div></div>
-    <div class="place"><span class="walk">13분</span><div><div class="nm">창경궁</div><div class="ds">월요일 휴무</div></div></div>
-    <div class="place"><span class="walk">15분</span><div><div class="nm">익선동 한옥마을</div><div class="ds">감성 골목</div></div></div>
-    <div class="place"><span class="walk">17분</span><div><div class="nm">창덕궁 + 후원 (UNESCO)</div><div class="ds">후원은 사전 예약 권장</div></div></div>
-    <div class="place"><span class="walk">20분</span><div><div class="nm">인사동 문화거리</div><div class="ds">전통 공예·찻집</div></div></div>
-    <div class="place"><span class="walk">지하철</span><div><div class="nm">경복궁</div><div class="ds">안국역에서 도보 5분 (3호선)</div></div></div>
+    <div class="place">
+      <span class="walk">10분</span>
+      <div class="body"><div class="nm">동대문 DDP</div><div class="ds">야경 추천</div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=DDP+Dongdaemun+Design+Plaza+Seoul"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>길찾기</a>
+    </div>
+    <div class="place">
+      <span class="walk">12분</span>
+      <div class="body"><div class="nm">종묘 (UNESCO)</div><div class="ds">화요일 휴무</div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Jongmyo+Shrine+Seoul"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>길찾기</a>
+    </div>
+    <div class="place">
+      <span class="walk">13분</span>
+      <div class="body"><div class="nm">창경궁</div><div class="ds">월요일 휴무</div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Changgyeonggung+Palace+Seoul"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>길찾기</a>
+    </div>
+    <div class="place">
+      <span class="walk">15분</span>
+      <div class="body"><div class="nm">익선동 한옥마을</div><div class="ds">감성 골목</div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=%EC%9D%B5%EC%84%A0%EB%8F%99+%ED%95%9C%EC%98%A5%EB%A7%88%EC%9D%84+%EC%84%9C%EC%9A%B8"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>길찾기</a>
+    </div>
+    <div class="place">
+      <span class="walk">17분</span>
+      <div class="body"><div class="nm">창덕궁 + 후원 (UNESCO)</div><div class="ds">후원은 사전 예약 권장</div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Changdeokgung+Palace+Seoul"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>길찾기</a>
+    </div>
+    <div class="place">
+      <span class="walk">20분</span>
+      <div class="body"><div class="nm">인사동 문화거리</div><div class="ds">전통 공예·찻집</div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Insadong+Seoul"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>길찾기</a>
+    </div>
+    <div class="place">
+      <span class="walk">지하철</span>
+      <div class="body"><div class="nm">경복궁</div><div class="ds">안국역에서 도보 5분 (3호선)</div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Gyeongbokgung+Palace+Seoul"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>길찾기</a>
+    </div>
 
     <p class="subhead">교통</p>
-    <ul class="clean">
-      <li><b>종로5가역</b> (1호선) — 도보 6–7분 (남쪽)</li>
-      <li><b>동대문역</b> (1·4호선) — 도보 8–10분 (동쪽)</li>
+    <div class="place">
+      <span class="walk">6분</span>
+      <div class="body"><div class="nm">종로5가역 (1호선)</div><div class="ds">가장 가까운 지하철역 · 남쪽</div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Jongno+5-ga+Station+Seoul"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>길찾기</a>
+    </div>
+    <div class="place">
+      <span class="walk">8분</span>
+      <div class="body"><div class="nm">동대문역 (1·4호선)</div><div class="ds">환승 가능 · 동쪽</div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Dongdaemun+Station+Seoul"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>길찾기</a>
+    </div>
+    <ul class="clean" style="margin-top:10px">
       <li><b>안국역</b> (3호선) — 버스 1정거장 또는 도보 23분</li>
       <li><b>공항</b> — 동대문역 6001번(인천공항행) / 또는 서울역까지 1호선 → 공항철도 환승</li>
       <li><b>택시</b> — 카카오 T 앱 추천 (영어 가능)</li>
     </ul>
+
+    <p class="subhead">의료시설</p>
+    <div class="place">
+      <span class="walk">10분</span>
+      <div class="body"><div class="nm">서울대학교병원</div><div class="ds">24시간 응급실 운영</div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Seoul+National+University+Hospital"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>길찾기</a>
+    </div>
+    <div class="place">
+      <span class="walk">6분</span>
+      <div class="body"><div class="nm">종로5가 백화점약국</div><div class="ds">가까운 약국</div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=%EC%A2%85%EB%A1%9C5%EA%B0%80+%EB%B0%B1%ED%99%94%EC%A0%90%EC%95%BD%EA%B5%AD"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>길찾기</a>
+    </div>
   </section>
 
   <!-- 체크아웃 부탁 -->
