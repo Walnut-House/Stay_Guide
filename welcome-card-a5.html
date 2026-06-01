@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome Card · A5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Serif+KR:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root {
+    --cream: #F4EDE0;
+    --cream-soft: #FAF6EE;
+    --walnut: #2A1D14;
+    --walnut-soft: #5C4A3A;
+    --forest: #2C4A3E;
+    --gold: #B8945C;
+    --line: #D8CAB0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #E8E0D0;
+    font-family: 'Manrope', -apple-system, sans-serif;
+    min-height: 100vh;
+    padding: 24px 16px;
+    color: var(--walnut);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  @media (min-width: 900px) {
+    .container { grid-template-columns: auto 1fr; }
+  }
+
+  /* ─── CARD PREVIEW ─── */
+  .card-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .card {
+    width: 148mm;
+    height: 210mm;
+    background: var(--cream);
+    color: var(--walnut);
+    position: relative;
+    padding: 14mm 12mm;
+    box-shadow: 0 20px 60px rgba(42, 29, 20, 0.25), 0 4px 12px rgba(42, 29, 20, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform-origin: top center;
+  }
+
+  /* Subtle paper texture */
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(184, 148, 92, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(44, 74, 62, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  /* Top label */
+  .top-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8mm;
+  }
+
+  .top-label .line {
+    flex: 1;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 6mm;
+  }
+
+  .welcome {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48pt;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--walnut);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  .stay-name {
+    font-family: 'Manrope', sans-serif;
+    font-size: 11pt;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    color: var(--forest);
+    text-transform: uppercase;
+    margin-top: 5mm;
+  }
+
+  .greeting {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11pt;
+    color: var(--walnut-soft);
+    line-height: 1.5;
+    margin-top: 4mm;
+    padding: 0 4mm;
+    text-wrap: balance;
+    white-space: pre-line;
+    max-width: 120mm;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Divider */
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 6mm 0;
+    gap: 8px;
+  }
+
+  .divider .dot {
+    width: 4px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+
+  .divider .dash {
+    width: 30mm;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+  }
+
+  /* Wi-Fi section */
+  .wifi-section {
+    background: var(--cream-soft);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 6mm;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 6mm;
+    align-items: center;
+    margin-bottom: 5mm;
+  }
+
+  .wifi-info .label {
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 3mm;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .wifi-info .field {
+    margin-bottom: 3mm;
+  }
+
+  .wifi-info .field:last-child { margin-bottom: 0; }
+
+  .wifi-info .key {
+    font-size: 7.5pt;
+    color: var(--walnut-soft);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1mm;
+  }
+
+  .wifi-info .value {
+    font-family: 'Fraunces', serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--walnut);
+    word-break: break-all;
+  }
+
+  .wifi-qr {
+    width: 28mm;
+    height: 28mm;
+    background: white;
+    padding: 2mm;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .wifi-qr img, .wifi-qr canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .wifi-qr-label {
+    font-size: 6.5pt;
+    text-align: center;
+    color: var(--walnut-soft);
+    margin-top: 1mm;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* Guide section */
+  .guide-section {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 5mm;
+    align-items: center;
+    padding: 4mm 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 5mm;
+  }
+
+  .guide-qr {
+    width: 22mm;
+    height: 22mm;
+    background: white;
+    padding: 1.5mm;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--line);
+  }
+
+  .guide-qr img, .guide-qr canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .guide-text .title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15pt;
+    font-weight: 500;
+    color: var(--forest);
+    margin-bottom: 1mm;
+  }
+
+  .guide-text .desc {
+    font-size: 8.5pt;
+    color: var(--walnut-soft);
+    line-height: 1.5;
+  }
+
+  .guide-text .langs {
+    font-size: 7.5pt;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 2mm;
+    font-weight: 600;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 4mm;
+  }
+
+  .footer-left .label {
+    font-size: 7pt;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.5mm;
+    font-weight: 600;
+  }
+
+  .footer-left .host-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14pt;
+    font-style: italic;
+    color: var(--walnut);
+    line-height: 1;
+  }
+
+  .footer-left .contact {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8pt;
+    color: var(--walnut-soft);
+    margin-top: 1mm;
+  }
+
+  .footer-right {
+    text-align: right;
+    font-size: 6.5pt;
+    color: var(--walnut-soft);
+    letter-spacing: 0.15em;
+    line-height: 1.6;
+  }
+
+  .footer-right .moon {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11pt;
+    color: var(--forest);
+    margin-bottom: 2mm;
+  }
+
+  /* ─── CONTROL PANEL ─── */
+  .panel {
+    background: var(--cream-soft);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 24px;
+    max-width: 400px;
+    height: fit-content;
+    position: sticky;
+    top: 24px;
+  }
+
+  .panel h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--walnut);
+    margin-bottom: 4px;
+  }
+
+  .panel .sub {
+    font-size: 12px;
+    color: var(--walnut-soft);
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+  }
+
+  .field-group {
+    margin-bottom: 16px;
+  }
+
+  .field-group label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--walnut-soft);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .field-group input, .field-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    color: var(--walnut);
+    transition: border 0.2s;
+  }
+
+  .field-group input:focus, .field-group textarea:focus {
+    outline: none;
+    border-color: var(--forest);
+  }
+
+  .field-group textarea {
+    resize: vertical;
+    min-height: 60px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+  }
+
+  .btn-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-print {
+    background: var(--walnut);
+    color: var(--cream);
+  }
+
+  .btn-print:hover {
+    background: var(--forest);
+  }
+
+  .note {
+    font-size: 11px;
+    color: var(--walnut-soft);
+    margin-top: 16px;
+    line-height: 1.5;
+    padding: 12px;
+    background: rgba(184, 148, 92, 0.08);
+    border-radius: 4px;
+    border-left: 2px solid var(--gold);
+  }
+
+  /* Mobile: scale the card */
+  @media (max-width: 600px) {
+    .card {
+      transform: scale(0.6);
+      transform-origin: top center;
+      margin-bottom: -85mm;
+    }
+  }
+
+  /* ─── PRINT ─── */
+  @media print {
+    @page {
+      size: A5 portrait;
+      margin: 0;
+    }
+
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+
+    html, body {
+      background: white !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      width: 148mm !important;
+      height: 210mm !important;
+    }
+
+    .panel {
+      display: none !important;
+    }
+
+    .container {
+      display: block !important;
+      max-width: none !important;
+      width: 148mm !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      gap: 0 !important;
+      grid-template-columns: none !important;
+    }
+
+    .card-wrapper {
+      display: block !important;
+      width: 148mm !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .card {
+      width: 148mm !important;
+      height: 210mm !important;
+      box-shadow: none !important;
+      transform: none !important;
+      transform-origin: initial !important;
+      margin: 0 !important;
+      padding: 14mm 12mm !important;
+      page-break-after: avoid !important;
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Card Preview -->
+  <div class="card-wrapper">
+    <div class="card" id="card">
+
+      <div class="top-label">
+        <span class="line"></span>
+        <span id="preview-toplabel">House Info</span>
+        <span class="line"></span>
+      </div>
+
+      <div class="header">
+        <div class="welcome">Welcome</div>
+        <div class="stay-name" id="preview-name">WALNUT HOUSE</div>
+        <div class="greeting" id="preview-greeting">This is the part of Seoul where people actually live.
+For tonight, you're one of them.
+
+— 오늘 밤은 이 동네 사람으로 —</div>
+      </div>
+
+      <div class="divider">
+        <span class="dash"></span>
+        <span class="dot"></span>
+        <span class="dash"></span>
+      </div>
+
+      <!-- Wi-Fi Section -->
+      <div class="wifi-section">
+        <div class="wifi-info">
+          <div class="label">⌬ Wi-Fi Access</div>
+          <div class="field">
+            <div class="key">Network</div>
+            <div class="value" id="preview-ssid">walnut</div>
+          </div>
+          <div class="field">
+            <div class="key">Password</div>
+            <div class="value" id="preview-pw">walnut2345</div>
+          </div>
+        </div>
+        <div>
+          <div class="wifi-qr" id="wifi-qr"></div>
+          <div class="wifi-qr-label">Scan to connect</div>
+        </div>
+      </div>
+
+      <!-- Guide Section -->
+      <div class="guide-section">
+        <div class="guide-qr" id="guide-qr"></div>
+        <div class="guide-text">
+          <div class="title">Stay Guide</div>
+          <div class="desc">Check-out, neighborhood tips, transit, and house rules.</div>
+          <div class="langs">EN · 한국어 · 日本語 · 中文</div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <div class="footer-left">
+          <div class="label">Your Host</div>
+          <div class="host-name" id="preview-host">Dongeon</div>
+          <div class="contact" id="preview-contact">+82 10-2804-9566</div>
+        </div>
+        <div class="footer-right">
+          <div>JONGNO</div>
+          <div>SEOUL</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Control Panel -->
+  <div class="panel">
+    <h2>Card Editor</h2>
+    <div class="sub">정보를 입력하면 카드와 QR이 자동 업데이트됩니다</div>
+
+    <div class="field-group">
+      <label>상단 라벨 (Top Label)</label>
+      <input type="text" id="input-toplabel" value="House Info" placeholder="House Info">
+    </div>
+
+    <div class="field-group">
+      <label>숙소 이름 (Stay Name)</label>
+      <input type="text" id="input-name" value="WALNUT HOUSE" placeholder="Cheongsin Stay">
+    </div>
+
+    <div class="field-group">
+      <label>환영 메시지 (Greeting) · 엔터로 줄바꿈</label>
+      <textarea id="input-greeting">This is the part of Seoul where people actually live.
+For tonight, you're one of them.
+
+— 오늘 밤은 이 동네 사람으로 —</textarea>
+    </div>
+
+    <div class="field-group">
+      <label>Wi-Fi SSID</label>
+      <input type="text" id="input-ssid" value="walnut" placeholder="Wi-Fi network name">
+    </div>
+
+    <div class="field-group">
+      <label>Wi-Fi Password</label>
+      <input type="text" id="input-pw" value="walnut2345" placeholder="Wi-Fi password">
+    </div>
+
+    <div class="field-group">
+      <label>가이드북 URL</label>
+      <input type="text" id="input-guide" value="https://walnut-house.github.io/Stay_Guide/" placeholder="https://...">
+    </div>
+
+    <div class="field-group">
+      <label>호스트 이름</label>
+      <input type="text" id="input-host" value="Dongeon" placeholder="Host name (English)">
+    </div>
+
+    <div class="field-group">
+      <label>연락처</label>
+      <input type="text" id="input-contact" value="+82 10-2804-9566" placeholder="+82 10-...">
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-print" onclick="window.print()">⎙ A5 인쇄 / PDF 저장</button>
+    </div>
+
+    <div class="note">
+      💡 <strong>인쇄 팁:</strong> 브라우저 인쇄 대화상자에서 "용지: A5", "여백: 없음", "배경 그래픽 인쇄" 체크하세요. PDF로 저장 후 인쇄소에 보내면 깔끔합니다. 200g/m² 이상 매트지 추천.
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // QR generators
+  let wifiQR = null;
+  let guideQR = null;
+
+  function generateWifiQR(ssid, password) {
+    const wifiString = `WIFI:T:WPA;S:${ssid};P:${password};H:false;;`;
+    const container = document.getElementById('wifi-qr');
+    container.innerHTML = '';
+    wifiQR = new QRCode(container, {
+      text: wifiString,
+      width: 200,
+      height: 200,
+      colorDark: '#2A1D14',
+      colorLight: '#FAF6EE',
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  }
+
+  function generateGuideQR(url) {
+    const container = document.getElementById('guide-qr');
+    container.innerHTML = '';
+    guideQR = new QRCode(container, {
+      text: url || 'https://example.com',
+      width: 200,
+      height: 200,
+      colorDark: '#2C4A3E',
+      colorLight: '#FFFFFF',
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  }
+
+  // Bind inputs
+  document.getElementById('input-toplabel').addEventListener('input', e => {
+    document.getElementById('preview-toplabel').textContent = e.target.value || 'House Info';
+  });
+
+  document.getElementById('input-name').addEventListener('input', e => {
+    document.getElementById('preview-name').textContent = e.target.value || 'Stay Name';
+  });
+
+  document.getElementById('input-greeting').addEventListener('input', e => {
+    document.getElementById('preview-greeting').textContent = e.target.value;
+  });
+
+  document.getElementById('input-ssid').addEventListener('input', e => {
+    document.getElementById('preview-ssid').textContent = e.target.value;
+    generateWifiQR(e.target.value, document.getElementById('input-pw').value);
+  });
+
+  document.getElementById('input-pw').addEventListener('input', e => {
+    document.getElementById('preview-pw').textContent = e.target.value;
+    generateWifiQR(document.getElementById('input-ssid').value, e.target.value);
+  });
+
+  document.getElementById('input-guide').addEventListener('input', e => {
+    generateGuideQR(e.target.value);
+  });
+
+  document.getElementById('input-host').addEventListener('input', e => {
+    document.getElementById('preview-host').textContent = e.target.value || 'Host';
+  });
+
+  document.getElementById('input-contact').addEventListener('input', e => {
+    document.getElementById('preview-contact').textContent = e.target.value;
+  });
+
+  // Initial render
+  window.addEventListener('load', () => {
+    generateWifiQR('Cheongsin_2.4G', 'welcome2026');
+    generateGuideQR('https://walnut-house.github.io/Stay_Guide/');
+  });
+</script>
+
+</body>
+</html>
