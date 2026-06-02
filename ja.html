@@ -1,13 +1,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light">
+<meta name="color-scheme" content="only light">
 <title>WALNUT HOUSE · 日本語ご案内</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
 <style>
   :root{
-    color-scheme:light;
+    color-scheme:only light;
     --cream:#F6F0E3;
     --paper:#FDFBF4;
     --ink:#2A2620;
@@ -54,11 +54,12 @@
   .hero h1{
     font-family:"Fraunces",serif;
     font-weight:400;
-    font-size:60px;
+    font-size:clamp(32px, 9.5vw, 60px);
     line-height:1;
-    letter-spacing:.16em;
+    letter-spacing:.08em;
     color:var(--forest);
     margin-bottom:14px;
+    word-break:keep-all;
   }
   .hero .ko-title{
     font-family:"Gowun Batang",serif;
@@ -251,7 +252,7 @@
   .footer .loc{font-family:"Fraunces",serif;letter-spacing:.25em;font-size:11px;margin-top:8px;text-transform:uppercase}
 
   @media(max-width:540px){
-    .hero h1{font-size:42px}
+    .hero{padding-left:18px;padding-right:18px}
     .trash{grid-template-columns:1fr}
     .row .k{flex-basis:96px;font-size:13px}
     .card{padding:24px 20px}
@@ -264,6 +265,26 @@
     body{background:#fff;padding:0}
     .card{opacity:1;transform:none;animation:none;box-shadow:none;break-inside:avoid;page-break-inside:avoid}
     .hero{padding-top:30px}
+  }
+
+  /* ── 삼성 인터넷 강제 다크모드 완전 차단 ── */
+  @media (prefers-color-scheme: dark) {
+    html { filter: none !important; }
+    :root {
+      --cream:#F6F0E3;
+      --paper:#FDFBF4;
+      --ink:#2A2620;
+      --soft-ink:#5C564B;
+      --walnut:#9A744A;
+      --walnut-deep:#6E4F2E;
+      --forest:#2F4A3D;
+      --line:#E4DBC7;
+      --muted:#988F79;
+    }
+    body {
+      background: radial-gradient(125% 75% at 50% -8%, #FBF7EC 0%, #F6F0E3 55%, #EEE5D2 100%) !important;
+      color: #2A2620 !important;
+    }
   }
 </style>
 
@@ -279,7 +300,7 @@
     <!-- HERO -->
   <header class="hero">
     <div class="eyebrow">Stay Guide</div>
-    <h1>WALNUT&nbsp;HOUSE</h1>
+    <h1>WALNUT HOUSE</h1>
     <div class="ko-title">日本語ご案内</div>
     <p class="tagline">
       This is the part of Seoul where people actually live.<br>For tonight, you're one of them.
