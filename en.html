@@ -444,8 +444,15 @@
       <small>Door code will be sent on check-in day</small>
     </div></div>
     <!-- 📷 사진을 넣으려면 아래 src=""의 따옴표 사이에 파일명을 넣으세요. 예: src="doorlock.jpg" -->
-    <div class="photo-slot"><img class="guide-img" src="" alt="공동현관 키패드와 401호 도어락"></div>
-    <div class="photo-cap">공동현관 / 도어락</div>
+    <div class="note warn">⚠️ Please use only the left door of the main entrance.<br><small>(The right door may collide with the neighboring unit's door)</small></div>
+    <div style="display:flex;gap:8px;margin-top:10px">
+      <img class="guide-img" src="img/main-entrance.jpg" alt="공동현관" style="width:50%;border-radius:11px">
+      <img class="guide-img" src="img/main-entrance-left.png" alt="공동현관 왼쪽 문" style="width:50%;border-radius:11px">
+    </div>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <img class="guide-img" src="img/unit-entrance.jpg" alt="숙소현관" style="width:50%;border-radius:11px">
+      <img class="guide-img" src="img/keypad.jpg" alt="키패드" style="width:50%;border-radius:11px">
+    </div>
   </section>
 
   <!-- WiFi -->
@@ -458,11 +465,28 @@
     <div class="row"><div class="k">Password</div><div class="v"><span class="pw">walnut2345</span></div></div>
   </section>
 
+  <!-- 하우스 룰 -->
+  <section class="card" style="animation-delay:.25s">
+    <div class="card-head">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 9-4-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <div class="t"><span class="num">House Rules · 06</span><h2>House Rules</h2></div>
+    </div>
+    <ul class="clean">
+      <li><b>No smoking</b> anywhere in the building.</li>
+      <li>Please keep noise down between <b>22:00 – 06:00</b>.</li>
+      <li><b>No pets</b> allowed.</li>
+      <li><b>No outside guests</b> allowed.</li>
+      <li>Please remove shoes at the entrance. <b>Disposable slippers</b> are in the shoe cabinet.</li>
+      <li><b>2 face towels and 1 bath towel</b> per person are provided. <small>(Please wash before reuse.)</small></li>
+      <li>Feel free to use the <b>amenities</b> on the console next to the entrance.</li>
+    </ul>
+  </section>
+
   <!-- 집 사용 -->
   <section class="card" style="animation-delay:.2s">
     <div class="card-head">
       <div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M14 8h3M14 11h3M7 15h10"/></svg></div>
-      <div class="t"><span class="num">In the Home · 06</span><h2>House Manual</h2></div>
+      <div class="t"><span class="num">In the Home · 07</span><h2>House Manual</h2></div>
     </div>
     <div class="appliance">
       <div class="ap-title">Shoe Cabinet</div>
@@ -575,23 +599,6 @@
       <div class="note">You can turn the mood light on/off from the bedside table.</div>
       <div class="photo-slot" style="margin-top:10px"><img class="guide-img" src="img/mood-light.png" alt="큰방 침대 무드등"></div>
     </div>
-  </section>
-
-  <!-- 하우스 룰 -->
-  <section class="card" style="animation-delay:.25s">
-    <div class="card-head">
-      <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 9-4-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
-      <div class="t"><span class="num">House Rules · 07</span><h2>House Rules</h2></div>
-    </div>
-    <ul class="clean">
-      <li><b>No smoking</b> anywhere in the building.</li>
-      <li>Please keep noise down between <b>22:00 – 06:00</b>.</li>
-      <li><b>No pets</b> allowed.</li>
-      <li><b>No outside guests</b> allowed.</li>
-      <li>Please remove shoes at the entrance. <b>Disposable slippers</b> are in the shoe cabinet.</li>
-      <li><b>2 face towels and 1 bath towel</b> per person are provided. <small>(Please wash before reuse.)</small></li>
-      <li>Feel free to use the <b>amenities</b> on the console next to the entrance.</li>
-    </ul>
   </section>
 
   <!-- 쓰레기 -->

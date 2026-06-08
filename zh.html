@@ -444,8 +444,15 @@
       <small>门锁密码将于入住当天另行发送</small>
     </div></div>
     <!-- 📷 사진을 넣으려면 아래 src=""의 따옴표 사이에 파일명을 넣으세요. 예: src="doorlock.jpg" -->
-    <div class="photo-slot"><img class="guide-img" src="" alt="공동현관 키패드와 401호 도어락"></div>
-    <div class="photo-cap">공동현관 / 도어락</div>
+    <div class="note warn">⚠️ 请只使用公共门禁的左侧门。<br><small>（使用右侧门时可能与隔壁门冲突）</small></div>
+    <div style="display:flex;gap:8px;margin-top:10px">
+      <img class="guide-img" src="img/main-entrance.jpg" alt="공동현관" style="width:50%;border-radius:11px">
+      <img class="guide-img" src="img/main-entrance-left.png" alt="공동현관 왼쪽 문" style="width:50%;border-radius:11px">
+    </div>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <img class="guide-img" src="img/unit-entrance.jpg" alt="숙소현관" style="width:50%;border-radius:11px">
+      <img class="guide-img" src="img/keypad.jpg" alt="키패드" style="width:50%;border-radius:11px">
+    </div>
   </section>
 
   <!-- WiFi -->
@@ -458,11 +465,28 @@
     <div class="row"><div class="k">密码</div><div class="v"><span class="pw">walnut2345</span></div></div>
   </section>
 
+  <!-- 하우스 룰 -->
+  <section class="card" style="animation-delay:.25s">
+    <div class="card-head">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 9-4-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <div class="t"><span class="num">House Rules · 06</span><h2>入住规则</h2></div>
+    </div>
+    <ul class="clean">
+      <li>整栋楼内全面<b>禁烟</b>。</li>
+      <li><b>22:00～06:00</b>期间请保持安静，请勿大声喧哗。</li>
+      <li>禁止携带<b>宠物</b>入住。</li>
+      <li>禁止<b>邀请外人</b>进入。</li>
+      <li>请在玄关处脱鞋。<b>一次性拖鞋</b>放在鞋柜里。</li>
+      <li>每人提供<b>洗脸毛巾2条、浴巾1条</b>。<small>（如需重复使用，请洗净后再用。）</small></li>
+      <li>门旁控制台上备有<b>洗漱用品</b>，请按需取用。</li>
+    </ul>
+  </section>
+
   <!-- 집 사용 -->
   <section class="card" style="animation-delay:.2s">
     <div class="card-head">
       <div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M14 8h3M14 11h3M7 15h10"/></svg></div>
-      <div class="t"><span class="num">In the Home · 06</span><h2>房屋使用指南</h2></div>
+      <div class="t"><span class="num">In the Home · 07</span><h2>房屋使用指南</h2></div>
     </div>
     <div class="appliance">
       <div class="ap-title">鞋柜</div>
@@ -575,23 +599,6 @@
       <div class="photo-slot" style="margin-top:10px"><img class="guide-img" src="img/mood-light.png" alt="큰방 침대 무드등"></div>
     </div>
 
-  </section>
-
-  <!-- 하우스 룰 -->
-  <section class="card" style="animation-delay:.25s">
-    <div class="card-head">
-      <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 9-4-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
-      <div class="t"><span class="num">House Rules · 07</span><h2>入住规则</h2></div>
-    </div>
-    <ul class="clean">
-      <li>整栋楼内全面<b>禁烟</b>。</li>
-      <li><b>22:00～06:00</b>期间请保持安静，请勿大声喧哗。</li>
-      <li>禁止携带<b>宠物</b>入住。</li>
-      <li>禁止<b>邀请外人</b>进入。</li>
-      <li>请在玄关处脱鞋。<b>一次性拖鞋</b>放在鞋柜里。</li>
-      <li>每人提供<b>洗脸毛巾2条、浴巾1条</b>。<small>（如需重复使用，请洗净后再用。）</small></li>
-      <li>门旁控制台上备有<b>洗漱用品</b>，请按需取用。</li>
-    </ul>
   </section>
 
   <!-- 쓰레기 -->
