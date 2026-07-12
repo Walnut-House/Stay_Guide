@@ -1,0 +1,729 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<title>WALNUT HOUSE · คู่มือการเข้าพัก</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Noto+Sans+Thai:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme:only light;
+    --cream:#F6F0E3;
+    --paper:#FDFBF4;
+    --ink:#2A2620;
+    --soft-ink:#5C564B;
+    --walnut:#9A744A;
+    --walnut-deep:#6E4F2E;
+    --forest:#2F4A3D;
+    --forest-soft:#42685557;
+    --line:#E4DBC7;
+    --muted:#988F79;
+    --warn:#B4533B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:
+      radial-gradient(120% 80% at 50% -10%, #FBF7EC 0%, var(--cream) 55%, #EFE7D4 100%);
+    color:var(--ink);
+    font-family:"Noto Sans Thai","Gowun Dodum",sans-serif;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    padding:0 18px 90px;
+  }
+  .wrap{max-width:760px;margin:0 auto}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    text-align:center;
+    padding:74px 24px 54px;
+    position:relative;
+  }
+  .hero .eyebrow{
+    font-family:"Fraunces",serif;
+    letter-spacing:.42em;
+    text-transform:uppercase;
+    font-size:12px;
+    color:var(--walnut);
+    margin-bottom:26px;
+  }
+  .hero .eyebrow::before,.hero .eyebrow::after{
+    content:"";display:inline-block;width:34px;height:1px;
+    background:var(--walnut);vertical-align:middle;margin:0 14px 4px;
+  }
+  .hero h1{
+    font-family:"Fraunces",serif;
+    font-weight:400;
+    font-size:clamp(32px, 9.5vw, 60px);
+    line-height:1;
+    letter-spacing:.08em;
+    color:var(--forest);
+    margin-bottom:14px;
+    word-break:keep-all;
+  }
+  .hero .ko-title{
+    font-family:"Noto Sans Thai","Gowun Batang",serif;
+    font-size:19px;letter-spacing:.16em;color:var(--walnut-deep);
+    margin-bottom:30px;
+  }
+  .hero .tagline{
+    font-family:"Fraunces",serif;font-style:italic;
+    font-size:17px;color:var(--soft-ink);line-height:1.7;
+  }
+  .hero .tagline .kr{
+    display:block;font-family:"Noto Sans Thai","Gowun Batang",serif;font-style:normal;
+    font-size:15px;color:var(--muted);margin-top:12px;letter-spacing:.04em;
+  }
+  .dot-rule{display:flex;align-items:center;justify-content:center;gap:14px;margin:36px 0 0}
+  .dot-rule span{height:1px;width:120px;background:linear-gradient(90deg,transparent,var(--line))}
+  .dot-rule span:last-child{background:linear-gradient(90deg,var(--line),transparent)}
+  .dot-rule b{width:5px;height:5px;border-radius:50%;background:var(--walnut)}
+
+  /* ---------- CARD ---------- */
+  .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:30px 30px 32px;
+    margin:20px 0;
+    box-shadow:0 1px 0 #fff inset, 0 14px 30px -22px rgba(60,42,20,.4);
+    opacity:0;transform:translateY(14px);
+    animation:rise .7s forwards;
+  }
+  @keyframes rise{to{opacity:1;transform:none}}
+  .card-head{display:flex;align-items:center;gap:15px;margin-bottom:8px}
+  .ic{
+    flex:0 0 46px;width:46px;height:46px;border-radius:12px;
+    background:#F2EAD8;border:1px solid var(--line);
+    display:grid;place-items:center;
+  }
+  .ic svg{width:24px;height:24px;stroke:var(--forest);stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .card-head .t{display:flex;flex-direction:column}
+  .card-head .num{font-family:"Fraunces",serif;font-size:11px;letter-spacing:.3em;color:var(--walnut);text-transform:uppercase}
+  .card-head h2{font-family:"Noto Sans Thai","Gowun Batang",serif;font-size:23px;font-weight:700;color:var(--ink);line-height:1.3}
+  .divider{height:1px;background:var(--line);margin:18px 0 16px}
+
+  .row{display:flex;gap:12px;padding:7px 0;border-bottom:1px dashed var(--line)}
+  .row:last-child{border-bottom:0}
+  .row .k{flex:0 0 116px;color:var(--walnut-deep);font-family:"Noto Sans Thai","Gowun Batang",serif;font-weight:700;font-size:14px}
+  .row .v{flex:1;color:var(--ink)}
+  .row .v small{color:var(--muted);font-size:13px}
+
+  .chip{
+    display:inline-block;font-family:"Fraunces",serif;
+    background:var(--forest);color:#F6F0E3;border-radius:8px;
+    padding:3px 12px;font-size:18px;letter-spacing:.06em;
+  }
+  .pw{font-family:"Fraunces",serif;font-size:20px;color:var(--walnut-deep);letter-spacing:.04em}
+
+  ul.clean{list-style:none}
+  ul.clean li{position:relative;padding:6px 0 6px 24px}
+  ul.clean li::before{content:"";position:absolute;left:4px;top:16px;width:6px;height:6px;border-radius:50%;background:var(--walnut)}
+  ul.clean li b{color:var(--walnut-deep)}
+
+  .note{
+    background:#F3EEDF;border:1px solid var(--line);border-left:3px solid var(--walnut);
+    border-radius:0 10px 10px 0;padding:12px 16px;margin-top:14px;font-size:14px;color:var(--soft-ink)
+  }
+  .note.warn{border-left-color:var(--warn);background:#F7ECE6}
+
+  /* photo placeholder */
+  .photo{
+    border:2px dashed #CDBF9E;border-radius:12px;background:#FAF5E8;
+    padding:22px;text-align:center;margin-top:14px;color:var(--muted)
+  }
+  .photo svg{width:26px;height:26px;stroke:var(--walnut);stroke-width:1.6;fill:none;margin-bottom:6px}
+  .photo b{display:block;color:var(--walnut-deep);font-family:"Noto Sans Thai","Gowun Batang",serif;font-size:14px}
+  .photo span{font-size:12.5px}
+
+  /* uploaded photo */
+  .guide-img{
+    width:100%;display:block;border-radius:11px;
+    background:#FAF5E8;
+  }
+
+  /* photo slot */
+  .photo-slot{
+    position:relative;
+    border:2px dashed #CDBF9E;
+    border-radius:12px;
+    background:#FAF5E8;
+    min-height:78px;
+    margin-top:10px;
+  }
+  .photo-slot::after{
+    content:"📷";
+    position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--muted);font-size:11.5px;
+    font-family:"Noto Sans Thai",sans-serif;letter-spacing:.02em;
+    pointer-events:none;
+  }
+  .photo-slot:has(img:not([src=""])){
+    border:1px solid var(--line);background:transparent;min-height:0;
+  }
+  .photo-slot:has(img:not([src=""]))::after{display:none}
+  .photo-slot .guide-img[src=""]{display:none}
+  .photo-cap{font-size:12px;color:var(--muted);text-align:center;margin-top:6px;font-family:"Noto Sans Thai",sans-serif}
+
+  /* appliance items */
+  .appliance{padding:14px 0;border-bottom:1px dashed var(--line)}
+  .appliance:last-of-type{border-bottom:0}
+  .appliance:first-of-type{padding-top:4px}
+  .ap-title{
+    font-family:"Noto Sans Thai","Gowun Batang",serif;font-weight:700;color:var(--walnut-deep);
+    font-size:15px;letter-spacing:.02em;margin-bottom:4px;
+    position:relative;padding-left:16px;
+  }
+  .ap-title::before{
+    content:"";position:absolute;left:0;top:11px;
+    width:7px;height:7px;border-radius:50%;background:var(--walnut);
+  }
+  .ap-desc{color:var(--ink);font-size:14.5px;margin-bottom:4px}
+
+  /* trash grid */
+  .trash{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+  .bin{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#fff}
+  .bin .top{padding:11px 14px;color:#fff;display:flex;align-items:center;gap:9px;font-family:"Noto Sans Thai","Gowun Batang",serif;font-weight:700;font-size:14px}
+  .bin .top svg{width:19px;height:19px;stroke:#fff;stroke-width:1.8;fill:none}
+  .bin .body{padding:11px 14px 13px;font-size:13px;color:var(--soft-ink);line-height:1.65}
+  .b1 .top{background:#C2603E}.b2 .top{background:#C79A3A}.b3 .top{background:#39786A}.b4 .top{background:#8A8478}
+
+  /* nearby */
+  .place{padding:9px 0;border-bottom:1px dashed var(--line);display:flex;gap:12px;align-items:center}
+  .place:last-child{border-bottom:0}
+  .place .body{flex:1;min-width:0}
+  .place .nm{font-family:"Noto Sans Thai","Gowun Batang",serif;font-weight:700;color:var(--ink);font-size:15px}
+  .place .ds{color:var(--soft-ink);font-size:13.5px}
+  .walk{flex:0 0 auto;font-family:"Noto Sans Thai","Fraunces",serif;font-size:12px;color:#fff;background:var(--walnut);border-radius:20px;padding:2px 10px;white-space:nowrap}
+  .dir{
+    flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;
+    text-decoration:none;font-family:"Noto Sans Thai","Gowun Dodum",sans-serif;font-size:13px;
+    color:var(--forest);background:#EAF0EC;border:1px solid #CFE0D6;
+    border-radius:22px;padding:7px 13px;white-space:nowrap;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .dir svg{width:15px;height:15px;stroke:var(--forest);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .dir:hover{background:#DCE8E0;transform:translateY(-1px)}
+  .dir:active{transform:translateY(0)}
+  .subhead{font-family:"Noto Sans Thai","Gowun Batang",serif;font-weight:700;color:var(--forest);font-size:15px;margin:18px 0 4px;letter-spacing:.02em}
+  .subhead:first-of-type{margin-top:4px}
+
+  /* ---------- BACK BAR ---------- */
+  .back-bar{
+    position:sticky;top:0;z-index:100;
+    display:flex;align-items:center;
+    padding:10px 0;
+    background:linear-gradient(180deg,var(--cream) 70%,transparent);
+    pointer-events:none;
+  }
+  .back-btn{
+    pointer-events:auto;
+    display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;
+    font-family:"Noto Sans Thai","Fraunces",serif;font-size:13px;letter-spacing:.06em;
+    color:var(--walnut-deep);
+    background:var(--paper);
+    border:1px solid var(--line);border-radius:30px;
+    padding:7px 16px 7px 12px;
+    box-shadow:0 4px 14px -8px rgba(60,42,20,.35);
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .back-btn svg{width:15px;height:15px;stroke:var(--walnut);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+  .back-btn:hover{transform:translateX(-2px);box-shadow:0 6px 18px -8px rgba(60,42,20,.45);border-color:var(--walnut)}
+
+    .footer{text-align:center;padding:48px 0 0;color:var(--muted)}
+  .footer .mark{font-family:"Fraunces",serif;letter-spacing:.3em;color:var(--walnut);font-size:13px}
+  .footer .loc{font-family:"Fraunces",serif;letter-spacing:.25em;font-size:11px;margin-top:8px;text-transform:uppercase}
+
+  @media(max-width:540px){
+    .hero{padding-left:18px;padding-right:18px}
+    .trash{grid-template-columns:1fr}
+    .row .k{flex-basis:96px;font-size:13px}
+    .card{padding:24px 20px}
+    .place{flex-wrap:wrap}
+    .walk{order:1}
+    .place .body{order:3;flex-basis:100%}
+    .dir{order:2;margin-left:auto}
+  }
+  @media print{
+    body{background:#fff;padding:0}
+    .card{opacity:1;transform:none;animation:none;box-shadow:none;break-inside:avoid;page-break-inside:avoid}
+    .hero{padding-top:30px}
+  }
+
+  /* ── 삼성 인터넷 강제 다크모드 완전 차단 ── */
+  @media (prefers-color-scheme: dark) {
+    html { filter: none !important; }
+    :root {
+      --cream:#F6F0E3;
+      --paper:#FDFBF4;
+      --ink:#2A2620;
+      --soft-ink:#5C564B;
+      --walnut:#9A744A;
+      --walnut-deep:#6E4F2E;
+      --forest:#2F4A3D;
+      --line:#E4DBC7;
+      --muted:#988F79;
+    }
+    body {
+      background: radial-gradient(125% 75% at 50% -8%, #FBF7EC 0%, #F6F0E3 55%, #EEE5D2 100%) !important;
+      color: #2A2620 !important;
+    }
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="back-bar">
+    <a class="back-btn" href="index.html">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      เลือกภาษา
+    </a>
+  </div>
+
+    <!-- HERO -->
+  <header class="hero">
+    <div class="eyebrow">Stay Guide</div>
+    <h1>WALNUT HOUSE</h1>
+    <div class="ko-title">คู่มือภาษาไทย</div>
+    <p class="tagline">
+      This is the part of Seoul where people actually live.<br>For tonight, you're one of them.
+      <span class="kr">— คืนนี้ คุณคือหนึ่งในคนย่านนี้ —</span>
+    </p>
+    <div class="dot-rule"><span></span><b></b><span></span></div>
+  </header>
+
+  <!-- 환영 -->
+  <section class="card" style="animation-delay:.05s">
+    <div class="card-head">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
+      <div class="t"><span class="num">Welcome · 01</span><h2>ยินดีต้อนรับ</h2></div>
+    </div>
+    <p>สวัสดีค่ะ/ครับ ผมชื่อ <b>Host Dongeon</b> ขอบคุณมากที่เลือกพักที่ <b>WALNUT HOUSE</b> ผมจัดทำคู่มือนี้ขึ้นเพื่อให้การเข้าพักของคุณสะดวกสบายและน่าประทับใจ หากมีคำถามใด ๆ สามารถติดต่อได้ตลอดเวลา</p>
+    <div class="divider"></div>
+    <div class="row"><div class="k">Airbnb</div><div class="v">ข้อความในแอป <small>· ตอบเร็วที่สุด</small></div></div>
+    <div class="row"><div class="k">KakaoTalk</div><div class="v">pmzy</div></div>
+    <div class="row"><div class="k">WhatsApp</div><div class="v">+82 10-2804-9566</div></div>
+    <div class="row"><div class="k">LINE</div><div class="v">+82 10-2804-9566</div></div>
+    <div class="row"><div class="k">WeChat</div><div class="v">+82 10-2804-9566</div></div>
+    <div class="row"><div class="k">โทรศัพท์</div><div class="v">+82 10-2804-9566 <small>· กรณีฉุกเฉินเท่านั้น</small></div></div>
+  </section>
+
+  <!-- 필수 앱 -->
+  <section class="card" style="animation-delay:.1s">
+    <div class="card-head">
+      <div class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg></div>
+      <div class="t"><span class="num">Essential Apps · 02</span><h2>แอปที่จำเป็นสำหรับเที่ยวเกาหลี</h2></div>
+    </div>
+    <div class="divider"></div>
+    <!-- K.ride -->
+    <div class="row">
+      <div class="k" style="flex-basis:90px">🚖 K.ride</div>
+      <div class="v">
+        แอปเรียกแท็กซี่สำหรับชาวต่างชาติ · UI ภาษาอังกฤษ · รองรับบัตรเครดิตต่างประเทศ<br>
+        <small>ใช้เครือข่ายแท็กซี่ Kakao — เรียกรถเร็วและปลอดภัย<br>รองรับ: 133 ภาษา</small><br>
+        <div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap">
+          <a href="https://apps.apple.com/us/app/k-ride-taxi-cab-travel/id6474654222" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;font-size:12px;padding:5px 12px;border-radius:20px;background:#1A1A1A;color:#fff;text-decoration:none">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            App Store
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.kakaomobility.kride" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;font-size:12px;padding:5px 12px;border-radius:20px;background:#01875F;color:#fff;text-decoration:none">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M3.18 23.76c.3.17.64.22.99.14l13.02-7.52-2.9-2.9-11.11 10.28zM.54 1.18C.2 1.53 0 2.08 0 2.79v18.42c0 .71.2 1.26.55 1.6l.08.08 10.32-10.32v-.24L.62 1.1l-.08.08zM20.7 10.27l-2.77-1.6-3.22 3.22 3.22 3.22 2.79-1.61c.8-.46.8-1.22-.02-1.68v.45zM3.18.24L16.2 7.76l-2.9 2.9L2.18.38l.08-.08c.26-.1.6-.07.92-.06z"/></svg>
+            Google Play
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 파파고 -->
+    <div class="row">
+      <div class="k" style="flex-basis:90px">🌐 Papago</div>
+      <div class="v">
+        แอปแปลภาษา AI ของ Naver · แปลแบบเรียลไทม์ เกาหลี↔อังกฤษ, ญี่ปุ่น, จีน และอื่น ๆ<br>
+        <small>ใช้กล้องแปลเมนูและป้ายได้ — มีประโยชน์มากในร้านอาหาร<br>รองรับ: 한국어 · English · 日本語 · 中文 · Español · Français · Tiếng Việt · ภาษาไทย · Indonesia · Русский · Deutsch · Italiano · العربية</small><br>
+        <div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap">
+          <a href="https://apps.apple.com/app/papago/id1147874819" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;font-size:12px;padding:5px 12px;border-radius:20px;background:#1A1A1A;color:#fff;text-decoration:none">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            App Store
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.naver.labs.translator" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;font-size:12px;padding:5px 12px;border-radius:20px;background:#01875F;color:#fff;text-decoration:none">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M3.18 23.76c.3.17.64.22.99.14l13.02-7.52-2.9-2.9-11.11 10.28zM.54 1.18C.2 1.53 0 2.08 0 2.79v18.42c0 .71.2 1.26.55 1.6l.08.08 10.32-10.32v-.24L.62 1.1l-.08.08zM20.7 10.27l-2.77-1.6-3.22 3.22 3.22 3.22 2.79-1.61c.8-.46.8-1.22-.02-1.68v.45zM3.18.24L16.2 7.76l-2.9 2.9L2.18.38l.08-.08c.26-.1.6-.07.92-.06z"/></svg>
+            Google Play
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 네이버 지도 -->
+    <div class="row">
+      <div class="k" style="flex-basis:90px">🗺️ Naver<br><span style="padding-left:1.5em">Map</span></div>
+      <div class="v">
+        แอปแผนที่และนำทางที่ดีที่สุดของเกาหลี · เส้นทางเดิน รถสาธารณะ และขับรถแม่นยำ<br>
+        <small>Google Maps มีข้อจำกัดเรื่องเส้นทางเดินในเกาหลี — แนะนำให้ใช้ Naver Map<br>รองรับ: 한국어 · English · 日本語 · 中文(繁·簡)</small><br>
+        <div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap">
+          <a href="https://apps.apple.com/app/naver-map-navigation/id311867728" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;font-size:12px;padding:5px 12px;border-radius:20px;background:#1A1A1A;color:#fff;text-decoration:none">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            App Store
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.nhn.android.nmap" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;font-size:12px;padding:5px 12px;border-radius:20px;background:#01875F;color:#fff;text-decoration:none">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M3.18 23.76c.3.17.64.22.99.14l13.02-7.52-2.9-2.9-11.11 10.28zM.54 1.18C.2 1.53 0 2.08 0 2.79v18.42c0 .71.2 1.26.55 1.6l.08.08 10.32-10.32v-.24L.62 1.1l-.08.08zM20.7 10.27l-2.77-1.6-3.22 3.22 3.22 3.22 2.79-1.61c.8-.46.8-1.22-.02-1.68v.45zM3.18.24L16.2 7.76l-2.9 2.9L2.18.38l.08-.08c.26-.1.6-.07.92-.06z"/></svg>
+            Google Play
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+<div class="note">📌 เนื่องจากข้อจำกัดของรัฐบาลเกาหลีในการส่งออกข้อมูลแผนที่ Google Maps จึงใช้งานได้ไม่เต็มที่ในเกาหลี</div>
+  </section>
+
+  <!-- 찾아오는 방법 -->
+  <section class="card" style="animation-delay:.1s">
+    <div class="card-head">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+      <div class="t"><span class="num">How to Get Here · 03</span><h2>วิธีเดินทางมา</h2></div>
+    </div>
+    <div class="divider"></div>
+
+    <p class="subhead" style="margin-top:4px">🏠 ที่อยู่</p>
+    <ul class="clean">
+      <li><b>서울특별시 종로구 율곡로 22가길 7</b>, 401호 <a href="https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EC%A2%85%EB%A1%9C%EA%B5%AC%20%EC%9C%A8%EA%B3%A1%EB%A1%9C%2022%EA%B0%80%EA%B8%B8%207" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;font-family:'Noto Sans Thai','Gowun Dodum',sans-serif;font-size:12px;color:var(--forest);background:#EAF0EC;border:1px solid #CFE0D6;border-radius:20px;padding:3px 10px;text-decoration:none;vertical-align:middle;margin-left:6px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8z"/></svg>Naver Map</a></li>
+    </ul>
+
+    <p class="subhead">🚇 รถไฟใต้ดิน</p>
+    <ul class="clean">
+      <li><b>สถานี Dongdaemun 동대문역 (สาย 1·4)</b> ทางออก 10 → เดิน 9 นาที <a href="https://map.naver.com/v5/search/%EB%8F%99%EB%8C%80%EB%AC%B8%EC%97%AD" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;font-family:'Noto Sans Thai','Gowun Dodum',sans-serif;font-size:12px;color:var(--forest);background:#EAF0EC;border:1px solid #CFE0D6;border-radius:20px;padding:3px 10px;text-decoration:none;vertical-align:middle;margin-left:6px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8z"/></svg>Naver Map</a></li>
+      <li><b>สถานี Jongno 5-ga 종로5가역 (สาย 1)</b> ทางออก 3 → เดิน 9 นาที <a href="https://map.naver.com/p/entry/subway-station/129" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;font-family:'Noto Sans Thai','Gowun Dodum',sans-serif;font-size:12px;color:var(--forest);background:#EAF0EC;border:1px solid #CFE0D6;border-radius:20px;padding:3px 10px;text-decoration:none;vertical-align:middle;margin-left:6px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8z"/></svg>Naver Map</a></li>
+    </ul>
+
+    <p class="subhead">✈️ จากสนามบิน</p>
+    <ul class="clean">
+      <li><b>รถบัสสนามบิน 6002</b> (ประมาณ 1 ชม. 30 นาที) → ป้าย <b>동대문종합시장.종로6가(01771)</b> → เดิน 9 นาที</li>
+      <li><b>รถบัสสนามบิน 6011</b> (ประมาณ 1 ชม. 10 นาที) → ป้าย <b>창경궁.고궁호텔.메이플레이스호텔(01733)</b> → เดิน 15 นาที</li>
+    </ul>
+
+    <p class="subhead">🏟️ หากแวะ DDP ก่อน</p>
+    <ul class="clean">
+      <li><b>รถบัสสนามบิน 6001</b> (ประมาณ 1 ชม. 40 นาที) → ป้าย <b>동대문역사문화공원(02709)</b> → เดิน 24 นาที</li>
+    </ul>
+  </section>
+
+  <!-- 체크인/아웃 -->
+  <section class="card" style="animation-delay:.1s">
+    <div class="card-head">
+      <div class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="4"/><path d="M11.5 11.5 19 19"/><path d="M16 16l2-2 2 2-2 2z"/></svg></div>
+      <div class="t"><span class="num">Check-in / out · 04</span><h2>เช็คอิน · เช็คเอาต์</h2></div>
+    </div>
+    <div class="row"><div class="k">เช็คอิน</div><div class="v">หลัง 16:00 น.</div></div>
+    <div class="row"><div class="k">เช็คเอาต์</div><div class="v">ก่อน 11:00 น.</div></div>
+    <div class="row"><div class="k">ที่อยู่</div><div class="v"><b>서울특별시 종로구 율곡로 22가길 7</b>, 401호 <a href="https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EC%A2%85%EB%A1%9C%EA%B5%AC%20%EC%9C%A8%EA%B3%A1%EB%A1%9C%2022%EA%B0%80%EA%B8%B8%207" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;font-family:'Noto Sans Thai','Gowun Dodum',sans-serif;font-size:12px;color:var(--forest);background:#EAF0EC;border:1px solid #CFE0D6;border-radius:20px;padding:3px 10px;text-decoration:none;vertical-align:middle;margin-left:6px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8z"/></svg>Naver Map</a></div></div>
+    <div class="row"><div class="k">การเข้า</div><div class="v">
+      <span style="display:flex;flex-wrap:wrap;align-items:center;gap:6px;line-height:2">
+        ประตูหลัก&nbsp;<span class="chip">2345&ast;</span>
+        <span style="color:var(--muted)">→</span>
+        ชั้น 4
+        <span style="color:var(--muted)">→</span>
+        กดรหัสประตูห้อง 401
+      </span>
+      <small>รหัสประตูจะส่งให้ในวันเช็คอิน</small>
+    </div></div>
+    <div class="note warn">⚠️ กรุณาใช้เฉพาะประตูซ้ายของทางเข้าหลักเท่านั้น<br><small>(ประตูขวาอาจชนกับประตูห้องข้างเคียง)</small></div>
+    <div style="display:flex;gap:8px;margin-top:10px">
+      <img class="guide-img" src="img/main-entrance.jpg" alt="ทางเข้าหลัก" style="width:50%;border-radius:11px">
+      <img class="guide-img" src="img/main-entrance-left.png" alt="ประตูซ้ายทางเข้าหลัก" style="width:50%;border-radius:11px">
+    </div>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <img class="guide-img" src="img/unit-entrance.jpg" alt="ประตูห้องพัก" style="width:50%;border-radius:11px">
+      <img class="guide-img" src="img/keypad.jpg" alt="แป้นกดรหัส" style="width:50%;border-radius:11px">
+    </div>
+  </section>
+
+  <!-- WiFi -->
+  <section class="card" style="animation-delay:.15s">
+    <div class="card-head">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8 15.5a6 6 0 0 1 8 0"/><circle cx="12" cy="18.5" r="1"/></svg></div>
+      <div class="t"><span class="num">Network · 05</span><h2>Wi-Fi</h2></div>
+    </div>
+    <div class="row"><div class="k">เครือข่าย</div><div class="v"><span class="pw">walnut</span></div></div>
+    <div class="row"><div class="k">รหัสผ่าน</div><div class="v"><span class="pw">walnut2345</span></div></div>
+  </section>
+
+  <!-- 하우스 룰 -->
+  <section class="card" style="animation-delay:.25s">
+    <div class="card-head">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 9-4-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <div class="t"><span class="num">House Rules · 06</span><h2>กฎของที่พัก</h2></div>
+    </div>
+    <ul class="clean">
+      <li><b>ห้ามสูบบุหรี่</b> ทุกจุดภายในอาคาร <small>(รวมถึงบุหรี่ไฟฟ้า / ปรับ 300,000 วอน หากพบ)</small></li>
+      <li>กรุณารักษาความเงียบในช่วง <b>เวลากลางคืน (22:00–06:00 น.)</b><br><small>(อาคารนี้มีผู้พักอาศัยจริง เสียงฝีเท้าและเสียงพูดจะดังลงไปชั้นล่างโดยตรง ขอความร่วมมือด้วยความขอบคุณ)</small></li>
+      <li><b>ไม่อนุญาตให้นำสัตว์เลี้ยง</b> เข้าพัก</li>
+      <li><b>ไม่อนุญาตให้มีผู้เข้าพักที่ไม่ได้ลงทะเบียน</b><br><small>(หากพบ อาจต้องออกจากที่พักทันทีโดยไม่คืนเงิน)</small></li>
+      <li>กรุณาถอดรองเท้าที่ทางเข้า มี <b>รองเท้าแตะแบบใช้ครั้งเดียว</b> ในตู้รองเท้า — กรุณาสวมภายในห้อง</li>
+      <li>มี <b>ผ้าเช็ดหน้า 2 ผืน และผ้าเช็ดตัว 1 ผืน</b> ต่อคน <small>(กรุณาซักก่อนใช้ซ้ำ)</small></li>
+      <li>ใช้ <b>ของใช้ (amenities)</b> บนคอนโซลข้างทางเข้าได้ตามต้องการ</li>
+    </ul>
+  </section>
+
+  <!-- 집 사용 -->
+  <section class="card" style="animation-delay:.2s">
+    <div class="card-head">
+      <div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M14 8h3M14 11h3M7 15h10"/></svg></div>
+      <div class="t"><span class="num">In the Home · 07</span><h2>คู่มือการใช้ห้องพัก</h2></div>
+    </div>
+    <div class="appliance">
+      <div class="ap-title">ตู้รองเท้า</div>
+      <div class="note">รองเท้าแตะแบบใช้ครั้งเดียวอยู่ในตู้รองเท้า<br>กรุณาสวมภายในห้องเท่านั้น</div>
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <img class="guide-img" src="img/shoebox-closed.jpg" alt="ตู้รองเท้า (ปิด)" style="width:50%;border-radius:11px">
+        <img class="guide-img" src="img/shoebox-open.jpg" alt="ตู้รองเท้า (เปิด)" style="width:50%;border-radius:11px">
+      </div>
+    </div>
+
+    <div class="appliance">
+      <div class="ap-title">คอนโซลต้อนรับ (Welcome Console)</div>
+      <div class="note">มีของใช้ (amenities) ที่คอนโซลต้อนรับ (ใช้ได้ตามต้องการ)</div>
+      <div class="note">มีขนมเล็ก ๆ น้อย ๆ วางไว้ด้านบนคอนโซลต้อนรับ</div>
+      <div class="note">สแกน QR code บนแท่นวางการ์ดเพื่อเข้าถึงคู่มือการเข้าพักและเชื่อมต่อ Wi-Fi</div>
+      <div class="note"><b>KOREA ORDER</b> ที่มุมบนซ้ายของคอนโซล ช่วยให้ชาวต่างชาติสั่งอาหารได้สะดวกโดยไม่ติดปัญหาภาษา</div>
+      <div class="photo-slot" style="margin-top:10px"><img class="guide-img" src="img/welcome-console2.jpg" alt="คอนโซลต้อนรับ"></div>
+    </div>
+
+    <div class="appliance">
+      <div class="ap-title">เครื่องปรับอากาศ</div>
+      <p class="ap-desc">ปรับด้วยรีโมท กรุณาปิดเมื่อออกจากห้อง</p>
+      <div class="note">รีโมทอยู่ข้างสวิตช์ไฟในทุกห้อง</div>
+      <div class="note">เครื่องปรับอากาศในห้องนั่งเล่นจะเข้าสู่โหมดไล่ความชื้นอัตโนมัติเมื่อปิด</div>
+      <img class="guide-img" src="img/remote-aircon.png" alt="รีโมทเครื่องปรับอากาศ" style="margin-top:10px;border-radius:11px;width:50%">
+    </div>
+
+    <div class="appliance">
+      <div class="ap-title">เครื่องซักผ้า / เครื่องอบผ้า</div>
+      <p class="ap-desc">อยู่ในห้องซักผ้าด้านในครัว น้ำยาซักผ้าอยู่ข้างเครื่องซักผ้า</p>
+      <div class="note">ตั้งเป็นโหมด <b>"AI 맞춤 추천" (AI แนะนำอัตโนมัติ)</b> เพื่อใช้งานง่าย</div>
+      <div class="note">เครื่องด้านบนคือเครื่องอบผ้า ด้านล่างคือเครื่องซักผ้า ใช้แถบตรงกลางเพื่อสลับระหว่างสองเครื่อง<br>แตะข้อความ Washer/Dryer เพื่อสลับ แล้วหมุนปุ่มเพื่อเลือกโปรแกรม</div>
+      <div style="display:flex;gap:8px;margin-top:10px"><img class="guide-img" src="img/washer-dryer.jpg" alt="เครื่องซักผ้าและอบผ้า" style="width:50%;border-radius:11px"><img class="guide-img" src="img/detergent.jpg" alt="น้ำยาซักผ้า" style="width:50%;border-radius:11px"></div>
+    </div>
+
+    <div class="appliance">
+      <div class="ap-title">เตาแก๊ส</div>
+      <p class="ap-desc">วิธีใช้: กด <b>ปุ่มตั้งเวลา (Timer) → แล้วจุดไฟ</b></p>
+      <div class="note">เมื่อกดปุ่มตั้งเวลา วาล์วแก๊สจะเปิดอัตโนมัติ<br>วาล์วจะปิดอัตโนมัติหลังผ่านไป 20 นาที</div>
+      <img class="guide-img" src="img/gas-stove.png" alt="เตาแก๊ส" style="margin-top:10px;border-radius:11px">
+      <div style="display:flex;gap:8px;margin-top:8px"><img class="guide-img" src="img/valve-closed.png" alt="วาล์วปิด" style="width:50%;border-radius:11px"><img class="guide-img" src="img/valve-open.jpg" alt="วาล์วเปิด" style="width:50%;border-radius:11px"></div>
+    </div>
+
+    <div class="appliance">
+      <div class="ap-title">ไมโครเวฟ</div>
+      <p class="ap-desc"></p>
+      <div class="note">กำลังไฟของไมโครเวฟคือ 700W</div>
+      <div class="photo-slot"><div style="display:flex;gap:8px"><img class="guide-img" src="img/microwave.jpg" alt="ไมโครเวฟ" style="width:50%"><img class="guide-img" src="img/microwave-guide.png" alt="คำแปลปุ่มไมโครเวฟ" style="width:50%"></div></div>
+    </div>
+
+    <div class="appliance">
+      <div class="ap-title">กาต้มน้ำไฟฟ้า</div>
+      <p class="ap-desc"></p>
+      <div class="photo-slot"><img class="guide-img" src="img/kettle.jpg" alt="กาต้มน้ำไฟฟ้า"></div>
+    </div>
+
+    <div class="appliance">
+      <div class="ap-title">ตู้เย็น</div>
+      <p class="ap-desc">ด้านล่าง: ช่องแช่แข็ง · ด้านบน: ช่องแช่เย็น</p>
+      <div class="note">มีน้ำดื่ม 1 ขวดต่อคนในตู้เย็น</div>
+      <div style="display:flex;gap:8px;margin-top:10px"><img class="guide-img" src="img/fridge.jpg" alt="ตู้เย็น" style="width:50%;border-radius:11px"><img class="guide-img" src="img/fridge-water.jpg" alt="น้ำดื่มในตู้เย็น" style="width:50%;border-radius:11px"></div>
+    </div>
+
+    <div class="appliance">
+      <div class="ap-title">มุมชา-กาแฟ (Tea Station)</div>
+      <div class="note">มีชาหลากหลายชนิดและกาแฟอยู่ในลิ้นชักของมุมชา-กาแฟ<br>เพียงใส่ที่ต้องการลงในถ้วยกระดาษ ต้มน้ำด้วยกาต้มน้ำไฟฟ้า แล้วเพลิดเพลินได้เลย</div>
+      <div style="display:flex;gap:8px;margin-top:10px"><img class="guide-img" src="img/tea-station-closed.jpg" alt="มุมชา-กาแฟ (ปิด)" style="width:50%;border-radius:11px"><img class="guide-img" src="img/tea-station-open.jpg" alt="มุมชา-กาแฟ (เปิด)" style="width:50%;border-radius:11px"></div>
+    </div>
+
+    <div class="appliance">
+      <div class="ap-title">ห้องน้ำ</div>
+      <div class="note warn">⚠️ ไม่มีพัดลมระบายอากาศ กรุณาเปิดหน้าต่างหรือประตูทิ้งไว้เมื่อไม่ได้ใช้งาน</div>
+      <div class="note">หากต้องการสลับระหว่างก๊อกน้ำและฝักบัว ให้หมุนก้านวาล์วไปทางซ้าย 90 องศา</div>
+      <div class="note">มีฝาปิดอ่างอาบน้ำและม่านอาบน้ำให้ใช้</div>
+      <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+        <img class="guide-img" src="img/shower-faucet.jpg" alt="ก๊อกน้ำและฝักบัว" style="width:calc(50% - 4px);border-radius:11px">
+        <img class="guide-img" src="img/shower-hose.jpg" alt="สายฝักบัว" style="width:calc(50% - 4px);border-radius:11px">
+        <img class="guide-img" src="img/bath-cover.jpg" alt="ฝาปิดอ่างอาบน้ำ" style="width:calc(50% - 4px);border-radius:11px;margin-top:8px">
+        <img class="guide-img" src="img/bathroom-vent.jpg" alt="การระบายอากาศห้องน้ำ" style="width:calc(50% - 4px);border-radius:11px;margin-top:8px">
+      </div>
+    </div>
+
+    <div class="appliance">
+      <div class="ap-title">TV</div>
+      <p class="ap-desc">กดปุ่มเปิดที่รีโมท แล้วเลือกบริการ OTT ที่ต้องการ</p>
+      <div class="note">ต้องเข้าสู่ระบบด้วยบัญชีของคุณเอง</div>
+      <div class="note">ใช้รีโมทสีดำในการควบคุม TV</div>
+      <img class="guide-img" src="img/remote-tv.png" alt="รีโมท TV" style="margin-top:10px;border-radius:11px">
+    </div>
+
+    <div class="appliance">
+      <div class="ap-title">พัดลมเพดาน</div>
+      <p class="ap-desc">ช่วยเพิ่มประสิทธิภาพการทำความเย็นและความร้อนด้วยการหมุนเวียนอากาศ</p>
+      <div class="note">ใช้รีโมทตั้งทิศทางหมุนตามเข็ม/ทวนเข็ม และระดับแรงลม 1–5<br>ทำความเย็น: <b>หมุนตามเข็ม</b> · ทำความร้อน: <b>หมุนทวนเข็ม</b></div>
+      <img class="guide-img" src="img/remote-fan.png" alt="รีโมทพัดลมเพดาน" style="margin-top:10px;border-radius:11px;width:25%">
+    </div>
+
+    <div class="appliance">
+      <div class="ap-title">หม้อต้ม (ทำความร้อน & น้ำอุ่น)</div>
+      <p class="ap-desc">กดปุ่มเปิดที่ตัวควบคุมหม้อต้มในห้อง 3 (ห้องใหญ่)</p>
+      <div class="note">กรุณาเปิดหม้อต้มเพื่อใช้น้ำอุ่น</div>
+      <img class="guide-img" src="img/boiler-controller.png" alt="ตัวควบคุมหม้อต้ม" style="margin-top:10px;border-radius:11px;width:50%">
+    </div>
+
+    <div class="appliance">
+      <div class="ap-title">โต๊ะข้างเตียงห้องใหญ่</div>
+      <div class="note">เปิด/ปิดไฟตกแต่งบรรยากาศ (mood light) ได้จากโต๊ะข้างเตียง</div>
+      <div class="photo-slot" style="margin-top:10px"><img class="guide-img" src="img/mood-light.png" alt="ไฟตกแต่งบรรยากาศห้องใหญ่"></div>
+    </div>
+  </section>
+
+  <!-- 쓰레기 안내 -->
+  <section class="card" style="animation-delay:.28s">
+    <div class="card-head">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M6 7l1 13h10l1-13"/><path d="M9 7V4h6v3"/><path d="M10 11v6M14 11v6"/></svg></div>
+      <div class="t"><span class="num">Trash Guide · 08</span><h2>คู่มือถังขยะ</h2></div>
+    </div>
+    <div class="note">ขยะทั่วไปและขยะรีไซเคิล ให้ใช้ถุงพลาสติกขนาด 50 ลิตร เมื่อเต็มให้มัดปากถุงแล้ววางไว้ข้างถัง จากนั้นใส่ถุง 50 ลิตรใบใหม่<br>โฮสต์จะเป็นผู้นำไปทิ้งตอนเช็คเอาต์</div>
+    <div class="note">ขยะเศษอาหาร เมื่อเต็มหรือผ่านไป 1 วัน ให้มัดปากถุงแล้วนำไปแช่ในช่องแช่แข็ง จากนั้นใส่ถุง 10 ลิตรใบใหม่ในถัง<br>โฮสต์จะเป็นผู้นำไปทิ้งตอนเช็คเอาต์</div>
+    <div class="note">ถังขยะในห้องน้ำก็เช่นกัน เมื่อเต็มให้เปลี่ยนเป็นถุง 10 ลิตรใบใหม่</div>
+    <div class="note" style="border-left-color:var(--walnut-deep);background:#F3EEDF">หากคุณต้องการทิ้งขยะด้วยตนเอง กรุณาดูหัวข้อ <b>Garbage · 09</b><br><small>(โดยปกติโฮสต์จะเป็นผู้จัดการทิ้งขยะทั้งหมด)</small></div>
+    <div class="divider"></div>
+    <p class="subhead">ตำแหน่งถังขยะทั่วไป & รีไซเคิล</p>
+    <img class="guide-img" src="img/trash-bin.jpg" alt="ถังขยะทั่วไปและรีไซเคิล" style="margin-top:10px;border-radius:11px;width:50%">
+    <p class="subhead">ตำแหน่งถังขยะเศษอาหาร</p>
+    <img class="guide-img" src="img/food-waste-bin.jpg" alt="ถังขยะเศษอาหาร" style="margin-top:10px;border-radius:11px;width:50%">
+    <p class="subhead">ตำแหน่งถุงพลาสติก</p>
+    <div style="display:flex;gap:8px;margin-top:10px"><img class="guide-img" src="img/plastic-bag-location.png" alt="ตำแหน่งถุงพลาสติก" style="width:50%;border-radius:11px"><img class="guide-img" src="img/plastic-bag.png" alt="ถุงพลาสติก" style="width:50%;border-radius:11px"></div>
+  </section>
+
+  <!-- 쓰레기 -->
+  <section class="card" style="animation-delay:.3s">
+    <div class="card-head">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M6 7l1 13h10l1-13"/><path d="M9 7V4h6v3"/><path d="M10 11v6M14 11v6"/></svg></div>
+      <div class="t"><span class="num">Garbage · 09</span><h2>การทิ้งขยะ</h2></div>
+    </div>
+    <div class="trash">
+      <div class="bin b1"><div class="top"><svg viewBox="0 0 24 24"><path d="M12 3c2 3 4 4 4 7a4 4 0 1 1-8 0c0-1 .5-2 1-3"/></svg>ขยะทั่วไป</div><div class="body">ใช้ถุงขยะตามกำหนดของเขต<br><b style="color:var(--walnut-deep)">[ตำแหน่งถุง]</b><div style="display:flex;gap:8px;margin-top:8px"><img class="guide-img" src="img/bag-drawer.png" alt="ลิ้นชักเก็บถุง" style="width:50%;border-radius:11px"><img class="guide-img" src="img/garbage-bag.png" alt="ถุงขยะทั่วไป" style="width:50%;border-radius:11px"></div></div></div>
+      <div class="bin b2"><div class="top"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 11H6z"/><path d="M9 8V5h6v3"/></svg>ขยะเศษอาหาร</div><div class="body">ใช้ถุงขยะตามกำหนดของเขต<br><b style="color:var(--walnut-deep)">[ตำแหน่งถุง]</b><div style="display:flex;gap:8px;margin-top:8px"><img class="guide-img" src="img/bag-drawer.png" alt="ลิ้นชักเก็บถุง" style="width:50%;border-radius:11px"><img class="guide-img" src="img/food-waste-bag.png" alt="ถุงขยะเศษอาหาร" style="width:50%;border-radius:11px"></div></div></div>
+      <div class="bin b3"><div class="top"><svg viewBox="0 0 24 24"><path d="M8 4h8M10 4v4l-3 11h10L14 8V4"/></svg>รีไซเคิล</div><div class="body">พลาสติก กระป๋อง ขวด โลหะ ฯลฯ<br>ใส่ในถุงพลาสติกทั่วไป (50 ลิตร)<br><b style="color:var(--walnut-deep)">[ตำแหน่งถุงพลาสติก]</b><img class="guide-img" src="img/plastic-bag.png" alt="ถุงพลาสติกรีไซเคิล" style="margin-top:8px;border-radius:11px;width:50%"></div></div>
+      <div class="bin b4"><div class="top"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="11" rx="1"/><path d="M4 11h16"/></svg>เวลา/สถานที่ทิ้ง</div><div class="body">วัน: <b style="color:var(--walnut-deep)">อา.–ศ.</b><br>เวลา: 19:00 – 21:00 น.<br><b style="color:var(--walnut-deep)">[สถานที่]</b> หน้าทางเข้าหลักชั้น 1<img class="guide-img" src="img/garbage-spot.png" alt="จุดทิ้งขยะ" style="margin-top:8px;border-radius:11px;width:50%"></div></div>
+    </div>
+    <div class="note warn">📌 ขยะที่เหลือตอนเช็คเอาต์ โฮสต์จะเป็นผู้นำไปทิ้งเอง</div>
+    <div class="note warn">⚠️ หากแยกขยะไม่ถูกต้อง โฮสต์อาจถูกปรับ</div>
+  </section>
+
+  <!-- 비상 연락처 -->
+  <section class="card" style="animation-delay:.35s">
+    <div class="card-head">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h3l2 5-2 1c1 2 3 4 5 5l1-2 5 2v3c0 1-1 2-2 2A15 15 0 0 1 3 6c0-1 1-2 2-2z"/></svg></div>
+      <div class="t"><span class="num">Emergency · 10</span><h2>เบอร์ติดต่อฉุกเฉิน</h2></div>
+    </div>
+    <p class="subhead">สายด่วนที่เป็นมิตรกับชาวต่างชาติ (แนะนำ)</p>
+    <div class="row"><div class="k"><span class="chip" style="background:var(--walnut)">1330</span></div><div class="v">สายด่วนหลายภาษาของการท่องเที่ยวเกาหลี ตลอด 24 ชม.<br><small>ภาษาอังกฤษ ญี่ปุ่น จีน และอื่น ๆ · สามารถต่อสาย 119/112 พร้อมล่ามได้</small></div></div>
+    <p class="subhead">แจ้งเหตุฉุกเฉินโดยตรง</p>
+    <div class="row"><div class="k">รถพยาบาล/ดับเพลิง</div><div class="v"><span class="chip">119</span></div></div>
+    <div class="row"><div class="k">ตำรวจ</div><div class="v"><span class="chip">112</span></div></div>
+    <div class="note">หลังต่อสายแล้ว พูดว่า <b>"Hello, English please"</b> จะมีล่ามมาช่วย</div>
+    <div class="note">โรงพยาบาลและร้านขายยาใกล้เคียง ดูได้ที่หัวข้อ <b>"สถานที่ใกล้เคียง"</b> → <b>"สถานพยาบาล"</b></div>
+  </section>
+
+  <!-- 주변 추천 -->
+  <section class="card" style="animation-delay:.4s">
+    <div class="card-head">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+      <div class="t"><span class="num">Around the House · 11</span><h2>สถานที่ใกล้เคียง</h2></div>
+    </div>
+
+    <p class="subhead">ร้านสะดวกซื้อ (24 ชม.)</p>
+    <div class="place">
+      <span class="walk">เดิน 2 นาที</span>
+      <div class="body"><div class="nm">CU 종로충신점<small style="display:block;color:var(--muted);font-size:11.5px">ร้านสะดวกซื้อ CU</small></div><div class="ds"></div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://map.naver.com/v5/search/CU%20%EC%A2%85%EB%A1%9C%EC%B6%A9%EC%8B%A0%EC%A0%90"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>Naver Map</a>
+    </div>
+    <div class="place">
+      <span class="walk">เดิน 3 นาที</span>
+      <div class="body"><div class="nm">GS25 종로효제점<small style="display:block;color:var(--muted);font-size:11.5px">ร้านสะดวกซื้อ GS25</small></div><div class="ds"></div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://map.naver.com/p/entry/place/1787772057"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>Naver Map</a>
+    </div>
+    <div class="place">
+      <span class="walk">เดิน 5 นาที</span>
+      <div class="body"><div class="nm">세븐일레븐 종로충신점<small style="display:block;color:var(--muted);font-size:11.5px">7-Eleven</small></div><div class="ds"></div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://map.naver.com/p/entry/place/18676099"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>Naver Map</a>
+    </div>
+    <div class="place">
+      <span class="walk">เดิน 6 นาที</span>
+      <div class="body"><div class="nm">세븐일레븐 뉴종로6가점<small style="display:block;color:var(--muted);font-size:11.5px">7-Eleven</small></div><div class="ds"></div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://map.naver.com/p/entry/place/2029007904"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>Naver Map</a>
+    </div>
+
+
+    <p class="subhead">คาเฟ่</p>
+    <div class="place">
+      <span class="walk">เดิน 2 นาที</span>
+      <div class="body"><div class="nm">4ozday Coffee Roasters</div><div class="ds">สเปเชียลตี้สไตล์ออสเตรเลีย · คั่วกาแฟเอง</div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://map.naver.com/p/entry/place/1602811722"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>Naver Map</a>
+    </div>
+    <div class="place">
+      <span class="walk">เดิน 2 นาที</span>
+      <div class="body"><div class="nm">종로1971카페<small style="display:block;color:var(--muted);font-size:11.5px">Jongno 1971 Cafe</small></div><div class="ds"></div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://map.naver.com/p/entry/place/1765079313"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>Naver Map</a>
+    </div>
+    <div class="place">
+      <span class="walk">เดิน 4 นาที</span>
+      <div class="body"><div class="nm">컴포즈커피 종로6가점<small style="display:block;color:var(--muted);font-size:11.5px">Compose Coffee</small></div><div class="ds"></div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://map.naver.com/p/entry/place/1651859604"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>Naver Map</a>
+    </div>
+    <div class="place">
+      <span class="walk">เดิน 6 นาที</span>
+      <div class="body"><div class="nm">매머드익스프레스 동대문역점<small style="display:block;color:var(--muted);font-size:11.5px">Mammoth Express</small></div><div class="ds"></div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://map.naver.com/p/entry/place/1989192373"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>Naver Map</a>
+    </div>
+
+    <p class="subhead">สถานีรถไฟใต้ดิน</p>
+    <div class="place">
+      <span class="walk">เดิน 9 นาที</span>
+      <div class="body"><div class="nm">종로5가역 (1호선)<small style="display:block;color:var(--muted);font-size:11.5px">Jongno 5-ga Station (Line 1)</small></div><div class="ds"></div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://map.naver.com/p/entry/subway-station/129"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>Naver Map</a>
+    </div>
+    <div class="place">
+      <span class="walk">เดิน 9 นาที</span>
+      <div class="body"><div class="nm">동대문역 (1·4호선)<small style="display:block;color:var(--muted);font-size:11.5px">Dongdaemun Station (Line 1·4)</small></div><div class="ds"></div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://map.naver.com/v5/search/%EB%8F%99%EB%8C%80%EB%AC%B8%EC%97%AD"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>Naver Map</a>
+    </div>
+
+    <p class="subhead">สถานพยาบาล</p>
+    <div class="place">
+      <span class="walk">เดิน 21 นาที</span>
+      <div class="body"><div class="nm">서울대학교병원<small style="display:block;color:var(--muted);font-size:11.5px">Seoul National University Hospital · ห้องฉุกเฉิน 24 ชม.</small></div><div class="ds"></div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://map.naver.com/p/entry/place/12130919"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>Naver Map</a>
+    </div>
+    <div class="place">
+      <span class="walk">เดิน 8 นาที</span>
+      <div class="body"><div class="nm">종로5가 백화점약국<small style="display:block;color:var(--muted);font-size:11.5px">Jongno 5-ga Pharmacy · ร้านขายยา</small></div><div class="ds"></div></div>
+      <a class="dir" target="_blank" rel="noopener" href="https://map.naver.com/p/entry/place/19525420"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>Naver Map</a>
+    </div>
+  </section>
+
+  <!-- 체크아웃 부탁 -->
+  <section class="card" style="animation-delay:.45s">
+    <div class="card-head">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-5"/><circle cx="12" cy="12" r="9"/></svg></div>
+      <div class="t"><span class="num">Before You Leave · 12</span><h2>ก่อนออกจากที่พัก</h2></div>
+    </div>
+    <ul class="clean">
+      <li>กรุณาล้างจานที่ใช้แล้วพอประมาณ แล้ววางไว้ในอ่างล้างจาน</li>
+      <li>หากคุณประทับใจกับการเข้าพัก การรีวิวจะมีความหมายกับเรามาก!</li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+    <div class="mark">WALNUT HOUSE</div>
+    <div class="loc">Jongno · Seoul</div>
+  </footer>
+
+</div>

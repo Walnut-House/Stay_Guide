@@ -4,7 +4,7 @@
 <title>WALNUT HOUSE · Guest Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Noto+Sans+Thai:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
     color-scheme:light;
@@ -105,12 +105,12 @@
   .lang:hover{transform:translateY(-2px);border-color:var(--walnut);box-shadow:0 16px 30px -20px rgba(60,42,20,.55)}
   .lang:hover::before{transform:scaleY(1)}
   .lang .glyph{
-    flex:0 0 auto;font-family:"Gowun Batang",serif;font-weight:700;
+    flex:0 0 auto;font-family:"Noto Sans Thai","Gowun Batang",serif;font-weight:700;
     font-size:24px;color:var(--forest);min-width:104px;letter-spacing:.02em;
   }
   .lang .meta{flex:1}
   .lang .meta .name{font-family:"Fraunces",serif;font-size:15px;color:var(--ink)}
-  .lang .meta .sub{font-size:12px;color:var(--muted);letter-spacing:.04em}
+  .lang .meta .sub{font-family:"Noto Sans Thai","Gowun Dodum",sans-serif;font-size:12px;color:var(--muted);letter-spacing:.04em}
   .lang .arrow{
     flex:0 0 auto;color:var(--walnut);font-size:20px;
     transition:transform .25s ease;
@@ -126,7 +126,7 @@
   .fade{opacity:0;transform:translateY(12px);animation:rise .7s forwards}
   @keyframes rise{to{opacity:1;transform:none}}
   .d1{animation-delay:.05s}.d2{animation-delay:.12s}.d3{animation-delay:.18s}
-  .d4{animation-delay:.24s}.d5{animation-delay:.30s}.d6{animation-delay:.36s}.d7{animation-delay:.42s}
+  .d4{animation-delay:.24s}.d5{animation-delay:.30s}.d6{animation-delay:.36s}.d7{animation-delay:.42s}.d8{animation-delay:.48s}
 
   @media(max-width:440px){
     .welcome{font-size:44px}
@@ -153,7 +153,7 @@
   <!-- LANGUAGE SELECT -->
   <div class="sel-label fade d5">
     안내를 받으실 언어를 선택해 주세요
-    <span class="en">Select your language · 言語を選択 · 选择语言</span>
+    <span class="en">Select your language · 言語を選択 · 选择语言 · เลือกภาษา</span>
   </div>
 
   <nav class="langs">
@@ -175,6 +175,11 @@
     <a class="lang fade d7" href="zh.html">
       <span class="glyph">中文</span>
       <span class="meta"><span class="sub">中文指南</span></span>
+      <span class="arrow">→</span>
+    </a>
+    <a class="lang fade d8" href="th.html">
+      <span class="glyph">ภาษาไทย</span>
+      <span class="meta"><span class="sub">คู่มือภาษาไทย</span></span>
       <span class="arrow">→</span>
     </a>
   </nav>
